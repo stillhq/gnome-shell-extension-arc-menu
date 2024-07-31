@@ -3,7 +3,6 @@
 %global gschemadir	%{_datadir}/glib-2.0/schemas
 %global gitname		ArcMenu
 %global giturl		https://gitlab.com/arcmenu/%{gitname}
-%global downloadurl  %{giturl}/-/archive/v%{version}/ArcMenu-v%{version}.zip
 %global srcdir		%{_builddir}/%{gitname}-%{version}/src
 
 Name:		gnome-shell-extension-arc-menu
@@ -13,7 +12,7 @@ Summary:	GNOME Shell Extension - ArcMenu
 
 License:	GPLv2+
 URL:		https://extensions.gnome.org/extension/3628/arcmenu/
-Source0:	%{giturl}/archive/refs/tags/v%{version}.zip
+Source0:	 %{giturl}/-/archive/v%{version}/ArcMenu-v%{version}.zip
 BuildArch:	noarch
 
 Requires:  gnome-menus
