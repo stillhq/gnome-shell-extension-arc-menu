@@ -33,7 +33,7 @@ General Help:
 Please report all bugs or issues at https://gitlab.com/arcmenu/ArcMenu
 
 %prep
-%autosetup -n {gitname}-v%{version}
+%autosetup -n %{gitname}-v%{version}
 
 %build
 %install
