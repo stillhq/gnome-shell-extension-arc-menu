@@ -16,8 +16,10 @@ Source0:	 %{giturl}/-/archive/v%{version}/ArcMenu-v%{version}.zip
 BuildArch:	noarch
 
 Requires:  gnome-menus
+
+BuildRequires:  gettext
+BuildRequires:  make
 BuildRequires:  glib2
-BuildRequires:	meson
 
 %description
 Application menu for GNOME Shell
