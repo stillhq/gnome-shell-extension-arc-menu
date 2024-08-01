@@ -43,9 +43,10 @@ Please report all bugs or issues at https://gitlab.com/arcmenu/ArcMenu
 %install
 %make_install
 
-mkdir -p %{_datadir}/glib-2.0/schemas
+mkdir -p %{buildroot}%{_datadir}/glib-2.0/schemas
+mkdir -p %{buildroot}%{_datadir}/licenses/%{NAME}
 cp -a schemas/org.gnome.shell.extensions.arcmenu.gschema.xml %{buildroot}%{_datadir}/glib-2.0/schemas
-cp COPYING %{buildroot}/usr/share/licenses/%{NAME}
+cp COPYING %{buildroot}%{_datadir}/licenses/%{NAME}
 
 %postun
 if [ $1 -eq 0 ] ; then
