@@ -7,7 +7,7 @@
 
 Name:		gnome-shell-extension-arc-menu
 Version:	58
-Release:	2{?dist}
+Release:	2%{?dist}
 Summary:	GNOME Shell Extension - ArcMenu
 
 License:	GPLv2+
