@@ -61,6 +61,7 @@ fi
 %files
 %license COPYING
 %{extdir}
+%{_datadir}/locale/*/LC_MESSAGES/arcmenu.mo
 %{_datadir}/glib-2.0/schemas/org.gnome.shell.extensions.arcmenu.gschema.xml
 
 %changelog
