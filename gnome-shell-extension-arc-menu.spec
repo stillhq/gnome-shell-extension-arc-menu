@@ -44,7 +44,7 @@ Please report all bugs or issues at https://gitlab.com/arcmenu/ArcMenu
 %make_install
 
 mkdir -p %{_datadir}/glib-2.0/schemas
-cp -a %{buildroot}%{extdir}/schemas/org.gnome.shell.extensions.arcmenu.gschema.xml %{buildroot}%{_datadir}/glib-2.0/schemas
+cp -a schemas/org.gnome.shell.extensions.arcmenu.gschema.xml %{buildroot}%{_datadir}/glib-2.0/schemas
 cp COPYING %{buildroot}/usr/share/licenses/%{NAME}
 
 %postun
