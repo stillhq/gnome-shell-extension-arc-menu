@@ -36,16 +36,33 @@ Please report all bugs or issues at https://gitlab.com/arcmenu/ArcMenu
 %autosetup -n %{gitname}-v%{version}
 
 %build
+%make_build
+
 %install
-mkdir -p %{buildroot}%{_datadir}/gnome-shell/extensions/%{extuuid}
-mkdir -p %{buildroot}/usr/share/licenses/%{NAME}
+%make_install
+
+mkdir -p %{_datadir}/glib-2.0/schemas
+cp -a %{buildroot}%{extdir}/schemas/org.gnome.shell.extensions.arcmenu.gschema.xml %{buildroot}%{_datadir}/glib-2.0/schemas
 cp COPYING %{buildroot}/usr/share/licenses/%{NAME}
-cp -ar * %{buildroot}%{_datadir}/gnome-shell/extensions/%{extuuid}
+
+%postun
+if [ $1 -eq 0 ] ; then
+  %{_bindir}/glib-compile-schemas %{gschemadir} &> /dev/null || :
+  %{_bindir}/glib-compile-schemas %{extdir}/schemas &> /dev/null || :
+fi
+
+%posttrans
+%{_bindir}/glib-compile-schemas %{gschemadir} &> /dev/null || :
+%{_bindir}/glib-compile-schemas %{extdir}/schemas &> /dev/null || :
 
 %files
 %license COPYING
 %{extdir}
+%{_datadir}/glib-2.0/schemas/org.gnome.shell.extensions.arcmenu.gschema.xml
 
 %changelog
-* Tue Jul 30 2024 PizzaLovingNerd
+* Wed Jul 31 2024 Cameron Knauff
+- Switched to using MAKE
+
+* Tue Jul 30 2024 Cameron Knauff
 - Extension
